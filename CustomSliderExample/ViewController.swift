@@ -1,25 +1,16 @@
-//
-//  ViewController.swift
-//  CustomSliderExample
-//
-//  Created by Erik Krietsch on 3/18/15.
-//  Copyright (c) 2015 Erik Krietsch. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var rangeSlider: RangeSlider!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    
+        rangeSlider.addTarget(self, action: "rangeSliderValueChanged:", forControlEvents: .ValueChanged)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+  
+    func rangeSliderValueChanged(rangeSlider: RangeSlider) {
+        println("Range Slider value changed: (\(rangeSlider.lowerValue) \(rangeSlider.upperValue))")
     }
-
 
 }
 
